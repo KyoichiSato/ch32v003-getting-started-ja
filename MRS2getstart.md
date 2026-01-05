@@ -67,7 +67,7 @@ MRS2の [Project] - [Properties]でプロジェクトの設定を開く。
 
 ![設定変更 - Build](MRS2getstart_4.png)
 
-SDI_Printfを有効にるために、プロジェクトのプロパティの Build Settingsで
+SDI_Printfを有効にするために、プロジェクトのプロパティの Build Settingsで
 - GNU RISC-V Cross C Compiler - Preprosessorの Defined symbols の [+ Add]ボタンを押して `SDI_PRINT=SDI_PR_OPEN` を追加する  
   これを行わないと printfが USARTへ出力される
 - 右下の Applyを押して設定を終了する
@@ -79,7 +79,7 @@ SDI_Printfを有効にるために、プロジェクトのプロパティの Bui
 
 #### 発信器の設定
 
-`user\system_ch32v00x.c` の冒頭に下のようにシステムクロックを設定する箇所があります。
+`user\system_ch32v00x.c` の冒頭に次のようにシステムクロックを設定する箇所があります。
 
 ```c
 /* 
@@ -112,6 +112,12 @@ SDI_Printfを有効にるために、プロジェクトのプロパティの Bui
 ### WCH-LinkEと V1772基板を接続する
 ![接続図](WCH-LinkE_V1772.png)
 ![接続写真](WCH-LinkE_V1772_1.jpg)
+
+|     WCH-LinkE |  CH32V003 |
+|--------------:|:----------|
+| 3V3 または 5V | V         |
+|           GND | GND       |
+|         SWDIO | SWD / PD1 |
 
 WCH-LinkEとCH32V003を電線3本で接続します。電源は5Vでも3.3Vでも、どちらでもよい。WCH-LinkEを買ったら接続用の線も付属していたので、それを使いました。
 
