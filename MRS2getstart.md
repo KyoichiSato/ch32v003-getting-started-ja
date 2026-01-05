@@ -81,7 +81,7 @@ SDI_Printfを有効にるために、プロジェクトのプロパティの Bui
 
 `user\system_ch32v00x.c` の冒頭に下のようにシステムクロックを設定する箇所があります。
 
-```
+```c
 /* 
 * Uncomment the line corresponding to the desired System clock (SYSCLK) frequency (after 
 * reset the HSI is used as SYSCLK source).
@@ -98,7 +98,7 @@ SDI_Printfを有効にるために、プロジェクトのプロパティの Bui
 
 初期状態では、外部高速水晶 48MHzが選ばれているので、
 
-```
+```c
 //#define SYSCLK_FREQ_8MHz_HSI    8000000
 //#define SYSCLK_FREQ_24MHZ_HSI   HSI_VALUE
 #define SYSCLK_FREQ_48MHZ_HSI   48000000
@@ -137,7 +137,7 @@ WCH-LinkEのシリアルポートを選ぶ。
 ![ターミナル](MRS2getstart_10.png)
 ターミナルに CH32V003が出力した文字が表示される
 
-```
+```c
 main.c
 
     while(1)
