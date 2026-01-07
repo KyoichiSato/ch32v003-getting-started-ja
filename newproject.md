@@ -1,7 +1,7 @@
 ---
 title: 新規プロジェクトを作成してGPIOを操作してみる - MRS2 - CH32V003
 date: 2026-01-06
-updated: 2026-01-06
+updated: 2026-01-07
 ---
 
 [目次に戻る](index.md)
