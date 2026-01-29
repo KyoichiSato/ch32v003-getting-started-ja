@@ -22,4 +22,4 @@ updated: 2025-12-02
 ### この文章のライセンス
 CC0 1.0 Universal
 
-{{page.date}}作成 {{page.updated}}更新
+{{page.date}}作成 {{page.updated}}更新 佐藤恭一 kyoutan.jpn.org
