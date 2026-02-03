@@ -1,7 +1,7 @@
 ---
 title: はじめて使うMRS2 - CH32V003
 date: 2025-12-02
-updated: 2026-01-06
+updated: 2026-02-04
 ---
 
 [目次に戻る](index.md)
@@ -97,7 +97,7 @@ SDI_Printfを有効にするために、プロジェクトのプロパティの 
 #define SYSCLK_FREQ_48MHz_HSE   48000000
 ```
 
-初期状態では、外部高速水晶 48MHzが選ばれているので、
+初期状態では、外部高速水晶 (HSE) 48MHz が選ばれているので、
 
 ```c
 //#define SYSCLK_FREQ_8MHz_HSI    8000000
@@ -108,7 +108,7 @@ SDI_Printfを有効にするために、プロジェクトのプロパティの 
 //#define SYSCLK_FREQ_48MHz_HSE   48000000
 ```
 
-内臓高速発信器の行だけを有効にして、内臓高速RC発信器 48MHzで動作するように変更する。
+内臓高速発信器の行だけを有効にして、内臓高速RC発信器 (HSI) 48MHzで動作するように変更する。
 
 ### WCH-LinkEと V1772基板を接続する
 ![接続図](WCH-LinkE_V1772.png)
