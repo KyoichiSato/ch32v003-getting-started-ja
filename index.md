@@ -12,12 +12,12 @@ updated: 2025-12-02
     * 概要
     * 開発に必要なもの
     * 資料の探し方
-2. [V1772開発基板の回路図](./V1772.md)
-3. [MounRiver Studioを使ってみる](./MRS2getstart.md)
+2. [MounRiver Studioを使ってみる](./MRS2getstart.md)
     * MounRiver Studioのインストール
     * サンプルのビルド
     * 書き込み
     * 実行
+3. [V1772開発基板の回路図](./V1772.md)
 
 ### この文章のライセンス
 CC0 1.0 Universal
