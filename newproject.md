@@ -7,6 +7,8 @@ updated: 2026-02-15
 [目次に戻る](index.md)
 
 ## 新規プロジェクトを作成してGPIOを操作してみる
+開発環境の使い方を知るために、[V1772開発基板](V1772.md)に搭載されている LED (PD1)を点滅させてみます。
+
 ### 新規プロジェクトの作成
 [File] - [New] - [MounRiver Project] を選択。
 
@@ -50,6 +52,8 @@ User\system_ch32v00x.c の冒頭部分に MCUのクロック設定があるの�
 
 ### GPIOを操作するプログラムを書く
 `User\main.c` を自分で書きます。
+
+新規プロジェクトを作成すると、main.cに USARTを使う簡単なサンプルプログラムが用意されていましたが、全部削除して新しく書きました。
 
 ```c
 /*
@@ -108,6 +112,9 @@ int main (void) {
     }
 }
 ```
+はじめてなのでコメントをたくさん入れましたが、実際のコードの行数はとても少なくて簡単に使えます。
+
+ライブラリの使い方は、プロジェクトディレクトリの Peripheralにソースコードがあるので、ソースコードを読めばだいたいわかります。ソースコードでわからないところはリファレンスマニュアルを読みます。
 
 ### PD1 (SWD) をユーザーが使用した場合のプログラム再書き込み方法
 PD1をいったんユーザーが使用するように設定してしまうと、デバッガが MCUに接続できなくなってプログラムを書き換えることができなくなってしまいます。
@@ -122,6 +129,78 @@ WCH-LinkEの互換品では、MCUの電源 ON - OFF制御が省略されてい�
 PD1をユーザーが使用すると、プログラムの書き込みができなくなって困るのではないかと心配していたのですが、使ってみるとなにも心配ありませんでした。
 
 **[Clear CodeFlash by Power-Off] にチェックを入れておいてください。**
+
+### GPIOの入力も使ってみる
+V1772開発基板では、PC0に押しボタンスイッチが接続されているので、ボタンを押すたびに LEDを点灯したり消灯したりさせてみることにします。
+```c
+/*
+    はじめて新規プロジェクトを作って GPIOを操作してみる
+    V1772開発基板のPD1に接続されている赤LEDを点滅させる
+*/
+
+#include <stdbool.h>  // true / false を使いたくなった
+#include "debug.h"    // Dalay関数を使うのに必要
+
+int main (void) {
+    // スタートアッププログラムでシステムクロックが設定されてからmain関数が呼び出される
+
+    GPIO_InitTypeDef GPIO_InitStructure = {0};             // GPIOの設定に使う構造体を定義、メンバをゼロで初期化
+
+    NVIC_PriorityGroupConfig (NVIC_PriorityGroup_1);       // Peripheral\inc\ch32v00x_misc - 割り込みネストしない
+    SystemCoreClockUpdate();                               // User\system_ch32v00x - SystemCoreClock変数を現在動作している周波数で更新する（時間の計算や通信速度の計算で使う）
+                                                           // 初期化時に値がセットされているので、自分でクロックを変更していないなら必要ない
+    Delay_Init();                                          // Debug\debug - Delay関数初期化 システムクロックの速度から時間に換算する準備 DalayはSysTickのコンペアマッチで動作
+
+    RCC_APB2PeriphClockCmd (RCC_APB2Periph_AFIO, ENABLE);  // AFIOにクロックを供給
+    GPIO_PinRemapConfig (GPIO_Remap_SDI_Disable, ENABLE);  // PD1をユーザーが使用できるようにSDI (SWD)を無効化する
+                                                           // SWDを無効化するとデバッガが接続できくなってプログラムの書き換えができなくなる。
+                                                           // プロジェクトのプロパティの Downloadで **[Clear CodeFlash by Power-Off] にチェック**を入れておくと、
+                                                           // ダウンロード時に毎回 MCUの電源をいったんOFFにすることで強制的にデバッガに接続して、プログラムを書き換えるようになる。
+
+    // GPIOの設定 PD1をプッシュプル出力に設定
+    // ペリフェラルのライブラリがあるので、レジスタを直接操作しなくても設定できる
+    RCC_APB2PeriphClockCmd (RCC_APB2Periph_GPIOD, ENABLE);  // GPIODにクロックを供給
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;               // 設定するピンの選択
+
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_30MHz;       // ピンの駆動能力
+                                                            // GPIO_Speed_2MHz
+                                                            // GPIO_Speed_10MHz
+                                                            // GPIO_Speed_30MHz が選べる
+                                                            // この周波数に同期して出力するわけではなくて、駆動能力が強いと高い周波数を出力できるという意味
+
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;        // 入出力モードの選択
+                                                            // GPIO_Mode_AIN         アナログ入力
+                                                            // GPIO_Mode_IN_FLOATING フローティング入力
+                                                            // GPIO_Mode_IPD         プルダウン入力
+                                                            // GPIO_Mode_IPU         プルアップ入力
+                                                            // GPIO_Mode_Out_OD      オープンドレイン出力
+                                                            // GPIO_Mode_Out_PP      プッシュプル出力
+                                                            // GPIO_Mode_AF_OD       代替機能オープンドレイン出力
+                                                            // GPIO_Mode_AF_PP       代替機能プッシュプル出力 （AF:オルタネートファンクション USARTとかSPIとかI2Cとか）
+
+    GPIO_Init (GPIOD, &GPIO_InitStructure);                 // 上で値をセットした構造体をレジスタに書き込んで設定を行う
+
+    // PC0をフローティング入力に設定
+    RCC_APB2PeriphClockCmd (RCC_APB2Periph_GPIOC, ENABLE);  // GPIOCにクロックを供給
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;               // 設定するピンの選択
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;   // 入出力モードの選択
+    GPIO_Init (GPIOC, &GPIO_InitStructure);                 // 上で値をセットした構造体をレジスタに書き込んで設定を行う
+
+    // ボタンを押すたびに LEDを点灯させたり消灯させたりする
+    while (true) {
+        if (1 == GPIO_ReadInputDataBit (GPIOC, GPIO_Pin_0)) {
+            // ボタンが押されたとき出力を反転する
+            GPIO_WriteBit (GPIOD, GPIO_Pin_1, (~GPIO_ReadOutputDataBit (GPIOD, GPIO_Pin_1)) & 1);
+
+            //  ボタンが離されるまで待つ
+            while (1 == GPIO_ReadInputDataBit (GPIOC, GPIO_Pin_0));  // 押されている間ループ
+        }
+        // チャタリング除去のディレイ（極端に早い連打を無視する）
+        Delay_Ms (10);
+    }
+}
+```
+動きました。ボタンを押すたびに赤LEDが点灯したり消灯したりします。
 
 ### この文章のライセンス
 [CC0 1.0 Universal](LICENSE)
