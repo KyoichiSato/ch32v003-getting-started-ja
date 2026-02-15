@@ -190,7 +190,7 @@ int main (void) {
     while (true) {
         if (1 == GPIO_ReadInputDataBit (GPIOC, GPIO_Pin_0)) {
             // ボタンが押されたとき出力を反転する
-            GPIO_WriteBit (GPIOD, GPIO_Pin_1, (~GPIO_ReadOutputDataBit (GPIOD, GPIO_Pin_1)) & 1);
+            GPIO_WriteBit (GPIOD, GPIO_Pin_1, !GPIO_ReadOutputDataBit (GPIOD, GPIO_Pin_1));
 
             //  ボタンが離されるまで待つ
             while (1 == GPIO_ReadInputDataBit (GPIOC, GPIO_Pin_0));  // 押されている間ループ
