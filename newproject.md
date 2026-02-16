@@ -9,7 +9,7 @@ updated: 2026-02-15
 ## 新規プロジェクトを作成してGPIOを操作してみる
 開発環境の使い方を知るために、[V1772開発基板](V1772.md)に搭載されている LED (PD1)を点滅させてみます。
 
-MounRiver Studioの基本的な使い方と CH32V003への書き込み方法は、[MounRiver Studioを使ってみる](MRS2getstart.md) のページがあります。
+MounRiver Studioの基本的な使い方と CH32V003への書き込み方法については、[MounRiver Studioを使ってみる](MRS2getstart.md) のページがあります。
 
 
 ### 新規プロジェクトの作成
