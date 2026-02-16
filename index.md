@@ -28,6 +28,6 @@ updated: 2026-02-15
 4. [V1772開発基板の回路図](./V1772.md)
 
 ### この文章のライセンス
-CC0 1.0 Universal
+[CC0 1.0 Universal](https://github.com/KyoichiSato/ch32v003-getting-started-ja/blob/main/LICENSE)
 
 {{page.date}}作成 {{page.updated}}更新 佐藤恭一 kyoutan.jpn.org

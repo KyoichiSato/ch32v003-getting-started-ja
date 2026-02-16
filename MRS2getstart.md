@@ -166,7 +166,7 @@ main.c で一秒ごとに文字を表示しているので、ターミナルに�
 ![メモリ使用量](MRS2getstart_12.png)  
 
 ### この文章のライセンス
-[CC0 1.0 Universal](LICENSE)
+[CC0 1.0 Universal](https://github.com/KyoichiSato/ch32v003-getting-started-ja/blob/main/LICENSE)
 
 {{page.date}}作成 {{page.updated}}更新 佐藤恭一 kyoutan.jpn.org
 
