@@ -25,7 +25,8 @@ updated: 2026-02-15
     * GPIOを操作するプログラムを書く
     * PD1 (SWD) をユーザーが使用した場合のプログラム再書き込み方法
     * GPIOの入力も使ってみる
-4. [V1772開発基板の回路図](./V1772.md)
+4. [PD1/SWD (SDI)ピンをユーザーが使う方法](pd1_swd.md)
+5. [V1772開発基板の回路図](./V1772.md)
 
 ### この文章のライセンス
 [CC0 1.0 Universal](https://github.com/KyoichiSato/ch32v003-getting-started-ja/blob/main/LICENSE)
