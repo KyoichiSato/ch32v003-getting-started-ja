@@ -33,7 +33,7 @@ MCUの型番を選択するとプロジェクト名が型番と同じものに�
 
 ### クロックの設定
 ```c
-User\system_ch32v00x.c
+"User\system_ch32v00x.c"
 
 /* 
 * リセット後、HSI が SYSCLK ソースとして使用される。
