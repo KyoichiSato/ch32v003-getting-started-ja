@@ -6,7 +6,7 @@ updated: 2026-02-16
 
 [目次に戻る](index.md)
 
-## PD1/SWD (SDI)ピンをユーザーが使う方法
+## PD1/SWD (SDI)ピンをユーザーが使う方法と注意点
 ```c
     RCC_APB2PeriphClockCmd (RCC_APB2Periph_AFIO, ENABLE);  // AFIOにクロックを供給
     GPIO_PinRemapConfig (GPIO_Remap_SDI_Disable, ENABLE);  // PD1をユーザーが使用できるようにSDI (SWD)を無効化する
