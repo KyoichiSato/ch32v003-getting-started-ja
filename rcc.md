@@ -1,7 +1,7 @@
 ---
 title: クロック制御 (RCC) - CH32V003
 date: 2026-02-17
-updated: 2026-02-17
+updated: 2026-02-18
 ---
 
 [目次に戻る](index.md)
@@ -48,6 +48,66 @@ RCC->RSTSCKR
     RCC->CFGR0 &= (uint32_t)0xFFFEFFFF;
     RCC->INTR = 0x009F0000;
     // C言語からはこのようにレジスタを扱うことができる
+```
+
+```
+CTLR クロックコントロールレジスタ 初期値 0x0000xx83
+[31:26]         RO Reserved
+[   25] PLLRDY  RO PLL安定フラグ 1:安定した 0:していない
+[   24] PLLON   RW PLL制御ビット 1:PLL有効 0:PLL無効
+[23:20]         RO Reserved
+[   19] CSSON   RW クロックセキュリティシステム有効化ビット 1:有効 0:無効
+[   18] HSEBYP  RW HSEバイパス制御ビット 1:バイパスする（クロックを入力） 0:しない
+[   17] HSERDY  RO HSE安定フラグ
+[   16] HSEON   RW HSE制御ビット
+[15: 8] HSICAL  RO HSIキャリブレーション値
+[ 7: 3] HSITRIM RW HSI微調整
+[    2]         RO Reserved
+[    1] HSIRDY  RO HSI安定フラグ
+[    0] HSION   RW HSI制御ビット
+
+CFGR0 クロック構成レジスタ0 初期値 0x00000020
+[31:27]        RO Reserved
+[26:24] MCO    RW MCOピンスロック出力制御
+                  0xx:出力なし
+                  100:SYSCLK 101:HSI 110:HSE 111:PLL
+[23:17]        RO Reserved
+[   16] PLLSRC RW PLLソース 0:HSI 1:HSE
+[15:11] ADCPRE RW ADCクロックソース
+                  000xx:HBCLK/2   100xx:HBCLK/6
+                  00100:HBCLK/4   10100:HBCLK/12
+                  00101:HBCLK/8   10101:HBCLK/24
+                  00110:HBCLK/16  10110:HBCLK/48
+                  00111:HBCLK/32  10111:HBCLK/96
+                  010xx:HBCLK/4   110xx:HBCLK/8
+                  01100:HBCLK/8   11100:HBCLK/16
+                  01101:HBCLK/16  11101:HBCLK/32
+                  01110:HBCLK/32  11110:HBCLK/64
+                  01111:HBCLK/64  11111:HBCLK/128
+[10: 8]        RO Reserved
+[ 7: 4] HPER   RW HBCLKプリスケーラ
+                  0000:SYSCLK    1000:SYSCLK/2
+                  0001:SYSCLK/2  1001:SYSCLK/4
+                  0010:SYSCLK/3  1010:SYSCLK/8
+                  0011:SYSCLK/4  1011:SYSCLK/16
+                  0100:SYSCLK/5  1100:SYSCLK/32
+                  0101:SYSCLK/6  1101:SYSCLK/64
+                  0110:SYSCLK/7  1110:SYSCLK/128
+                  0111:SYSCLK/8  1111:SYSCLK/256
+[ 3: 2] SWS    RO SYSCLKステータス
+                  00:HSI 01:HSE 10:PLL 11:Not available
+[ 1: 0] SW     RW システムクロックソース
+                  00:HSI 01:HSE 10:PLL 11:無効
+
+INTR クロックインタラプトレジスタ 初期値 0x00000000
+[31:24]         RO Reserved
+[   23] CSSC    WO クロックセキュリティシステム割り込みフラグ (CSSF) クリア制御 1:クリアする
+[22:21]         RO Reserved
+[   20] PLLRDYC WO PLL-Ready割り込みフラグ (PLLRDYF) クリア制御 1:クリアする
+[   19] HSERDYC WO HSE-Ready割り込みフラグ (HSERDYF) クリア制御
+[   18] HSIRDYC WO HSI-Ready割り込みフラグ (HSIRDYF) クリア制御
+[   17]         RO Reserved
+
 ```
 レジスタ詳細を自分用にまとめようかと思ったのだけど、リファレンスマニュアルを直接見た方が良いのでやめた。
 
