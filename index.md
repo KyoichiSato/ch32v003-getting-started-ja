@@ -29,7 +29,15 @@ updated: 2026-02-15
     * PD1/SWDピンをユーザーが使う方法
     * ユーザーの操作で都度コードフラッシュを消去する方法
     * 書き込み時に自動でコードフラッシュを消去する方法
-5. [V1772開発基板の回路図](./V1772.md)
+5. 資料
+    * ペリフェラルの概要
+      * [RCC クロック制御](rcc.md)
+      * [IWDG 独立型ウォッチドッグ](iwdg.md)
+      * [WWDG ウィンドウウォッチドッグ](wwdg.md)
+      * [PFIC/EXTI 割り込みコントローラ](pfic_exti.md)
+      * [SysTick](systick.md)
+      * [GPIO](gpio.md)
+    * [V1772開発基板の回路図](./V1772.md)
 
 ### この文章のライセンス
 [CC0 1.0 Universal](https://github.com/KyoichiSato/ch32v003-getting-started-ja/blob/main/LICENSE)
