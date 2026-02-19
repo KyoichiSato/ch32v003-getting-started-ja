@@ -39,7 +39,6 @@ RCC->APB1PRSTR
 RCC->AHBPCENR
 RCC->APB2PCENR
 RCC->APB1PCENR
-RCC->RESERVED0
 RCC->RSTSCKR
 ```
 これらの識別子は、RCC ペリフェラルの各ハードウェアレジスタにメモリマップド I/O として対応付けられている。
@@ -50,6 +49,7 @@ RCC->RSTSCKR
     // C言語からはこのようにレジスタを扱うことができる
 ```
 
+### レジスタ一覧
 ```
 CTLR クロックコントロールレジスタ 初期値 0x0000xx83
 [31:26]         RO Reserved
@@ -100,16 +100,99 @@ CFGR0 クロック構成レジスタ0 初期値 0x00000020
                   00:HSI 01:HSE 10:PLL 11:無効
 
 INTR クロックインタラプトレジスタ 初期値 0x00000000
-[31:24]         RO Reserved
-[   23] CSSC    WO クロックセキュリティシステム割り込みフラグ (CSSF) クリア制御 1:クリアする
-[22:21]         RO Reserved
-[   20] PLLRDYC WO PLL-Ready割り込みフラグ (PLLRDYF) クリア制御 1:クリアする
-[   19] HSERDYC WO HSE-Ready割り込みフラグ (HSERDYF) クリア制御
-[   18] HSIRDYC WO HSI-Ready割り込みフラグ (HSIRDYF) クリア制御
-[   17]         RO Reserved
+[31:24]          RO Reserved
+[   23] CSSC     WO クロックセキュリティシステム割り込みフラグ (CSSF) クリア制御 1:クリアする
+[22:21]          RO Reserved
+[   20] PLLRDYC  WO PLL-Ready割り込みフラグ (PLLRDYF) クリア制御 1:クリアする
+[   19] HSERDYC  WO HSE-Ready割り込みフラグ (HSERDYF) クリア制御
+[   18] HSIRDYC  WO HSI-Ready割り込みフラグ (HSIRDYF) クリア制御
+[   17]          RO Reserved
+[   16] LSIRDYC  WO LSI-Ready割り込みフラグ (LSIRDYF) クリア制御
+[15:13]          RO Reserved
+[   12] PLLRDYIE RW PLL-Ready割り込み有効ビット 1:割り込み有効
+[   11] HSERDYIE RW HSE-Ready割り込み有効ビット
+[   10] HSIRDYIE RW HSI-Ready割り込み有効ビット
+[    9]          RO Reserved
+[    8] LSIRDYIE RW LSI-Ready割り込み有効ビット
+[    7] CSSF     RO クロックセキュリティシステム割り込みフラグ
+[ 6: 5]          RO Reserved
+[    4] PLLRDYF  RO PLL-Ready割り込みフラグ (PLLRDYCでクリア)
+[    3] HSERDYF  RO HSE-Ready割り込みフラグ
+[    2] HSIRDYF  RO HSI-Ready割り込みフラグ
+[    1]          RO Reserved
+[    0] LSIRDYF  RO LSI-Ready割り込みフラグ
 
+APB2PRSTR ペリフェラルリセットレジスタ 初期値 0x00000000
+[31:15]           RO Reserved
+[   14] USART1RST RW USART1リセットコントロール 1:リセット
+[   13]           RO Reserved
+[   12] SPI1RST   RW SPI1リセットコントロール
+[   11] TIM1RST   RW TIM1リセットコントロール
+[   10]           RO Reserved
+[    9] ADC1RST   RW ADC1リセットコントロール
+[ 8: 6]           RO Reserved
+[    5] IOPDRST   RW GPIO PDリセットコントロール
+[    4] IOPCRST   RW GPIO PCリセットコントロール
+[    3]           RO Reserved
+[    2] IOPARST   RW GPIO PAリセットコントロール
+[    1]           RO Reserved
+[    0] AFIORST   RW AFIO (I/O auxiliary function) リセットコントロール
+
+APB1PRSTR ペリフェラルリセットレジスタ 初期値 0x00000000
+[31:29]           RO Reserved
+[   28] PWRRST    RW パワーインターフェースモジュールリセットコントロール
+[27:22]           RO Reserved
+[   21] I2C1RST   RW I2C1リセットコントロール
+[20:12]           RO Reserved
+[   11] WWDGRST   RW WWDG (Window watchdog) リセットコントロール
+[10: 1]           RO Reserved
+[    0] TIM2RST   RW TIM2リセットコントロール
+
+AHBPCENR ペリフェラルクロック Enable レジスタ 初期値 0x00000004
+[31: 3]           RO Reserved
+[    2] SRAMEN    RW SRAM interface module clock enable bit.
+[    1]           RO Reserved
+[    0] DMA1EN    RW DMA1 module clock enable bit.
+
+APB2PCENR ペリフェラルクロック Enable レジスタ 初期値 0x00000000
+[31:15]           RO Reserved
+[   14] USART1EN  RW USART1 clock enable bit.
+[   13]           RO Reserved
+[   12] SPI1EN    RW SPI1 clock enable bit.
+[   11] TIM1EN    RW TIM1 clock enable bit.
+[   10]           RO Reserved
+[    9] ADC1EN    RW ADC1 clock enable bit.
+[ 8: 6]           RO Reserved
+[    5] IOPDEN    RW PD port clock enable bit.
+[    4] IOPCEN    RW PC port clock enable bit.
+[    3]           RO Reserved
+[    2] IOPAEN    RW PA port clock enable bit.
+[    1]           RO Reserved
+[    0] AFIOEN    RW AFIO (I/O auxiliary function) clock enable bit.
+
+APB1PCENR ペリフェラルクロック Enable レジスタ 初期値 0x00000000
+[31:29]           RO Reserved
+[   28] PWREN     RW Power interface module clock enable bit.
+[27:22]           RO Reserved
+[   21] I2C1EN    RW I2C1 clock enable bit.
+[20:12]           RO Reserved
+[   11] WWDGEN    RW WWDG (Window watchdog) clock enable bit.
+[10: 1]           RO Reserved
+[    0] TIM2EN    RW TIM2 clock enable bit.
+
+RSTSCKR Control/Status レジスタ 初期値 0x0c000000
+[   31] LPWRRSTF  RO Low-power リセットフラグ
+[   30] WWDGRSTF  RO WWDGリセットフラグ
+[   29] LWDGRSTF  RO IWDGリセットフラグ
+[   28] SFTRSTF   RO ソフトウェアリセットフラグ
+[   27] PORRSTF   RO Power-up/power-down リセットフラグ
+[   26] PINRSTF   RO NRSTピンリセットフラグ
+[   25]           RO Reserved
+[   24] RMVF      RW リセットフラグコントロール 1:すべてのリセットフラグをクリアする
+[23: 2]           RO Reserved
+[    1] LSIRDY    RO Low Speed Clock (LSI) 安定フラグ
+[    0] LSION     RW LSI有効化ビット
 ```
-レジスタ詳細を自分用にまとめようかと思ったのだけど、リファレンスマニュアルを直接見た方が良いのでやめた。
 
 ### この文章のライセンス
 [CC0 1.0 Universal](https://github.com/KyoichiSato/ch32v003-getting-started-ja/blob/main/LICENSE)
