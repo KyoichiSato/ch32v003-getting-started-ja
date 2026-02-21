@@ -1,7 +1,7 @@
 ---
 title: MounRiver Studioで使う CH32V003 はじめの一歩
 date: 2025-11-27
-updated: 2026-02-15
+updated: 2026-02-21
 ---
 
 # MounRiver Studioで使う CH32V003 はじめの一歩
@@ -36,7 +36,8 @@ updated: 2026-02-15
       * [WWDG ウィンドウウォッチドッグ](wwdg.md)
       * [PFIC/EXTI 割り込みコントローラ](pfic_exti.md)
       * [SysTick](systick.md)
-      * [GPIO](gpio.md)
+      * [GPIOとピンリマップ](gpio.md)
+      * [DMA](dma.md)
     * [V1772開発基板の回路図](./V1772.md)
 
 ### この文章のライセンス
