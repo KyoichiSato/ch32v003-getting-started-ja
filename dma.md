@@ -19,14 +19,14 @@ updated: 2026-02-21
 各ペリフェラルのレジスタで DMA制御ビットを設定することで、個別に DMA機能を 有効/無効に設定できる。
 
 #### ペリフェラルマッピング一覧
-|CH1     |CH2     |CH3     |CH4        |CH5      |CH6     |CH7     |
-|--------|--------|--------|-----------|---------|--------|--------|
-|ADC1    |        |        |           |         |        |        |
-|        |SPI1_RX |SPI1_TX |           |         |        |        |
-|        |        |        |USART1_RX  |USART1_TX|        |        |
-|        |        |        |           |         |I2C_TX  |I2C_RX  |
-|        |TIM1_CH1|TIM1_CH2|TIM1_CH4<br>TIM1_TRIG<br>TIM1_COM|TIM1_UP|TIM1_CH3|    |
-|TIM2_CH3|TIM2_UP |        |           |TIM2_CH1|        |TIM2_CH2<br>TIM1_CH4|
+|CH1     |CH2     |CH3     |CH4      |CH5      |CH6     |CH7     |
+|--------|--------|--------|---------|---------|--------|--------|
+|ADC1    |        |        |         |         |        |        |
+|        |SPI1_RX |SPI1_TX |         |         |        |        |
+|        |        |        |USART1_RX|USART1_TX|        |        |
+|        |        |        |         |         |I2C_TX  |I2C_RX  |
+|        |TIM1_CH1|TIM1_CH2|TIM1_CH4  TIM1_TRIG  TIM1_COM|TIM1_UP|TIM1_CH3|    |
+|TIM2_CH3|TIM2_UP |        |         |TIM2_CH1 |        |TIM2_CH2  TIM1_CH4|
 
 ### DMAレジスタ
 ```
