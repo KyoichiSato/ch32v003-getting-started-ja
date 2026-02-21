@@ -26,8 +26,8 @@ updated: 2026-02-21
 |        |SPI1_RX |SPI1_TX |         |         |        |        |
 |        |        |        |USART1_RX|USART1_TX|        |        |
 |        |        |        |         |         |I2C_TX  |I2C_RX  |
-|        |TIM1_CH1|TIM1_CH2|TIM1_CH4  TIM1_TRIG  TIM1_COM|TIM1_UP|TIM1_CH3|    |
-|TIM2_CH3|TIM2_UP |        |         |TIM2_CH1 |        |TIM2_CH2  TIM1_CH4|
+|        |TIM1_CH1|TIM1_CH2|TIM1_CH4<br>TIM1_TRIG<br>TIM1_COM|TIM1_UP  |TIM1_CH3|        |
+|TIM2_CH3|TIM2_UP |        |         |TIM2_CH1 |        |TIM2_CH2<br>TIM2_CH4|
 
 ### DMAレジスタ
 ```
