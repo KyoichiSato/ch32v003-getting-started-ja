@@ -12,9 +12,13 @@ updated: 2026-02-22
 ## 見出し2
 
 段落
-続きの文章 `code` **強調** <sub>下付</sub> <sup>上付き</sup> <ins>下線</ins>
+段落継続 `code` **強調** <sub>下付</sub> <sup>上付き</sup> <ins>下線</ins>
 
 次の段落 [link](https://kyoutan.jpn.org/) [見出しのアンカー](#github-docsの-markdown) [カスタムアンカー](#anchor1)
+
+強制改行は行末にスペースを 2入れて改行  
+する。<br/>
+でもよい。
 
 ![画像](WCH-LinkE_V1772.png)
 
@@ -25,6 +29,16 @@ updated: 2026-02-22
 1. list
    1. list
    - list
+
+- [x] list
+- [ ] list
+
+脚注を書けます。[^1]
+
+---
+
+[^1]: rifarence.
+
 
 > 引用
 
