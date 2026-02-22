@@ -37,10 +37,25 @@ updated: 2026-02-22
 
 ---
 
-[^1]: rifarence.
+[^1]: 脚注はページ末尾に表示される
 
 
 > 引用
+
+> [!NOTE]
+> NOTE
+
+> [!TIP]
+> TIP
+
+> [!IMPORTANT]
+> IMPORTANT
+
+> [!WARNING]
+> WARNING
+
+> [!CAUTION]
+> CAUTION
 
 ```c
 // コードブロック
@@ -64,7 +79,7 @@ updated: 2026-02-22
         Delay_Ms (10);
 ```
 
-<a name="anchor1"></a>
+<a name="anchor1"></a><!-- カスタムアンカー -->
 
 |表  |左寄せ|中寄せ|右寄せ|
 |----|:-----|:----:|-----:|
@@ -73,6 +88,14 @@ updated: 2026-02-22
 
 <!--コメント-->
 
+## テーブル行ヘッダ
+
+{% rowheaders %}
+|   |ABC|DEF|GHI|
+|---|---|---|---|
+|abc|  1|  2|  3|
+|def|  4|  5|  6|
+{% endrowheaders %}
 
 ### この文章のライセンス
 [CC0 1.0 Universal](https://github.com/KyoichiSato/ch32v003-getting-started-ja/blob/main/LICENSE)
