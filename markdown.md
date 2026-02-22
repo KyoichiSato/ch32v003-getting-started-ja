@@ -91,10 +91,12 @@ updated: 2026-02-22
 ## テーブル行ヘッダ
 
 {% rowheaders %}
+
 |   |ABC|DEF|GHI|
 |---|---|---|---|
 |abc|  1|  2|  3|
 |def|  4|  5|  6|
+
 {% endrowheaders %}
 
 ### この文章のライセンス
