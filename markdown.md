@@ -6,6 +6,7 @@ updated: 2026-02-22
 # GitHub Docsの Markdown
 * [GitHub 上での執筆とフォーマットについて](https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)
 * [GitHub Docs での Markdown と Liquid の使用](https://docs.github.com/ja/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs)
+* [Jekyll](https://jekyllrb.com/)
 * [Liquid](https://shopify.github.io/liquid/basics/introduction/)
 
 # 見出し1
@@ -99,6 +100,7 @@ updated: 2026-02-22
 
 <!--コメント-->
 
+<!-- これはレンダリングされないようだ
 ### テーブル行ヘッダ
 
 {% rowheaders %}
@@ -109,6 +111,26 @@ updated: 2026-02-22
 |def|  4|  5|  6|
 
 {% endrowheaders %}
+-->
+
+<!--
+## YAML front matter
+- [YAML front matter の使用](https://docs.github.com/ja/contributing/writing-for-github-docs/using-yaml-frontmatter)
+- Markdownファイル先頭で `---` で囲まれたブロック
+
+### title
+- \<title\>タグで設定される
+```
+---
+title: ページのタイトルを書きます
+shortTitle: タイトルの省略形
+---
+```
+
+### intro
+- ページの概要
+- ページ上部にレンダリングされる
+-->
 
 ### この文章のライセンス
 [CC0 1.0 Universal](https://github.com/KyoichiSato/ch32v003-getting-started-ja/blob/main/LICENSE)
