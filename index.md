@@ -38,6 +38,7 @@ updated: 2026-02-21
       * [SysTick](systick.md)
       * [GPIOとピンリマップ](gpio.md)
       * [DMA](dma.md)
+      * [ADC](adc.md)
     * [V1772開発基板の回路図](./V1772.md)
 
 ### この文章のライセンス
