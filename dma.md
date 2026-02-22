@@ -1,7 +1,7 @@
 ---
 title: DMA - CH32V003
 date: 2026-02-20
-updated: 2026-02-21
+updated: 2026-02-22
 ---
 
 [目次に戻る](index.md)
@@ -26,8 +26,8 @@ updated: 2026-02-21
 |        |SPI1_RX |SPI1_TX |         |         |        |        |
 |        |        |        |USART1_RX|USART1_TX|        |        |
 |        |        |        |         |         |I2C_TX  |I2C_RX  |
-|        |TIM1_CH1|TIM1_CH2|TIM1_CH4<br>TIM1_TRIG<br>TIM1_COM|TIM1_UP  |TIM1_CH3|        |
-|TIM2_CH3|TIM2_UP |        |         |TIM2_CH1 |        |TIM2_CH2<br>TIM2_CH4|
+|        |TIM1_CH1|TIM1_CH2|TIM1_CH4<br/>TIM1_TRIG<br/>TIM1_COM|TIM1_UP  |TIM1_CH3|        |
+|TIM2_CH3|TIM2_UP |        |         |TIM2_CH1 |        |TIM2_CH2<br/>TIM2_CH4|
 
 ### DMAレジスタ
 ```
@@ -44,7 +44,8 @@ DMA1_Channel2->PADDR
 DMA1_Channel2->MADDR
     :
 DMA1_Channel7 まである
-
+```
+```
 INTFR DMA割り込みステータスレジスタ 初期値 0x00000000
 [31:28]        RO Reserved
 [   27] TEIF7  RO CH7 転送エラーフラグ  1:エラー
@@ -75,7 +76,8 @@ INTFR DMA割り込みステータスレジスタ 初期値 0x00000000
 [    2] HTIF1  RO CH1 転送ハーフフラグ
 [    1] TCIF1  RO CH1 転送完了フラグ
 [    0] GIF1   RO CH1 グローバル割り込みフラグ TEIF/HTIF/TCIFいずれかが発生した
-
+```
+```
 INTFCR DMA割り込みフラグクリアレジスタ 初期値 0x00000000
 [31:28] RO Reserved
 [   27] CTEIF7 WO CH7 転送エラーフラグクリアビット        1:TEIFクリア
@@ -106,7 +108,8 @@ INTFCR DMA割り込みフラグクリアレジスタ 初期値 0x00000000
 [    2] CHTIF1 WO CH1 転送ハーフフラグクリアビット
 [    1] CTCIF1 WO CH1 転送完了フラグクリア
 [    0] CGIF1  WO CH1 グローバル割り込みフラグクリアビット
-
+```
+```
 CFGR DMAxコンフィギュレーションレジスタ 初期値 0x00000000
 [31:15]         RO Reserved
 [   14] MEM2MEM RW メモリ -> メモリ モード有効化ビット 1:有効
@@ -121,21 +124,24 @@ CFGR DMAxコンフィギュレーションレジスタ 初期値 0x00000000
 [    2] HTIE    RW 転送ハーフ割り込み有効 1:有効
 [    1] TCIE    RW 転送完了割り込み有効   1:有効
 [    0] EN      RW チャンネル有効化       1:有効
-
+```
+```
 CNTR DMAx転送カウンタ 初期値 0x00000000
 [31:16]           RO Reserved
 [15: 0] NDT[15:0] RW 転送データ数 (0~65535)
                      読み出すと残りの転送数
                      サイクリックモードの場合、0になると自動的に設定値にリロードされる
 CFGRのEN=0のときのみ書き込み可能
-
+```
+```
 PADDR DMAxペリフェラルアドレスレジスタ 初期値 0x00000000
 [31: 0] PA[31:0] RW ペリフェラルベースアドレス
                     16bit幅モードでは bit0を無視して 2バイト境界にアラインされる
                     32bit幅モードでは bit0, bit1を無視して 4バイト境界にアラインされる
                     メモリ -> メモリ モードでは転送元アドレス
 CFGRのEN=0のときのみ書き込み可能
-
+```
+```
 MADDR DMAxメモリアドレスレジスタ 初期値 0x00000000
 [31: 0] MA[31:0] RW メモリベースアドレス
                     16bit幅モードでは bit0を無視して 2バイト境界にアラインされる
