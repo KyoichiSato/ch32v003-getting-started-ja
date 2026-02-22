@@ -7,6 +7,8 @@ updated: 2026-02-22
 * [GitHub 上での執筆とフォーマットについて](https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)
 * [GitHub Docs での Markdown と Liquid の使用](https://docs.github.com/ja/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs)
 * [Jekyll](https://jekyllrb.com/)
+* [Jekyll-ja](https://jekyllrb-ja.github.io/)
+* [解釈の順番 - Jekyll](https://jekyllrb-ja.github.io/tutorials/orderofinterpretation/)
 * [Liquid](https://shopify.github.io/liquid/basics/introduction/)
 
 # 見出し1
