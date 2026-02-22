@@ -12,9 +12,9 @@ updated: 2026-02-22
 ## 見出し2
 
 段落
-続きの文章 `code` 色のサンプル`#FF8844` **強調** <sub>下付</sub> <sup>上付き</sup> <ins>下線</ins>
+続きの文章 `code` **強調** <sub>下付</sub> <sup>上付き</sup> <ins>下線</ins>
 
-次の段落 [link](https://kyoutan.jpn.org/)
+次の段落 [link](https://kyoutan.jpn.org/) [見出しのアンカー](#github-docsの-markdown) [カスタムアンカー](#anchor1)
 
 ![画像](WCH-LinkE_V1772.png)
 
@@ -49,6 +49,8 @@ updated: 2026-02-22
         // チャタリング除去のディレイ（極端に早い連打を無視する）
         Delay_Ms (10);
 ```
+
+<a name="anchor1"></a>
 
 |表  |左寄せ|中寄せ|右寄せ|
 |----|:-----|:----:|-----:|
