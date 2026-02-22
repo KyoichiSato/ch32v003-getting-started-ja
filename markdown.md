@@ -65,6 +65,8 @@ updated: 2026-02-22
 > [!CAUTION]
 > CAUTION
 
+GitHub Pageでは `> [！NOTE]` とかは使えない。
+
 ## コードブロック
 
 ```c
