@@ -100,7 +100,9 @@ updated: 2026-02-22
 
 <!--コメント-->
 
-<!-- これはレンダリングされないようだ
+```
+{% rowheaders %} は使えない
+
 ### テーブル行ヘッダ
 
 {% rowheaders %}
@@ -111,8 +113,7 @@ updated: 2026-02-22
 |def|  4|  5|  6|
 
 {% endrowheaders %}
--->
-
+```
 <!--
 ## YAML front matter
 - [YAML front matter の使用](https://docs.github.com/ja/contributing/writing-for-github-docs/using-yaml-frontmatter)
