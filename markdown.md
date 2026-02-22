@@ -98,7 +98,7 @@ updated: 2026-02-22
 | 789|   012|   345|   678|
 
 <!--コメント-->
-<!--
+
 ### テーブル行ヘッダ
 
 {% rowheaders %}
@@ -109,7 +109,6 @@ updated: 2026-02-22
 |def|  4|  5|  6|
 
 {% endrowheaders %}
--->
 
 ### この文章のライセンス
 [CC0 1.0 Universal](https://github.com/KyoichiSato/ch32v003-getting-started-ja/blob/main/LICENSE)
