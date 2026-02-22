@@ -101,6 +101,7 @@ updated: 2026-02-22
 <!--コメント-->
 
 ```
+{% raw %}
 {% rowheaders %} は使えない
 
 ### テーブル行ヘッダ
@@ -113,6 +114,7 @@ updated: 2026-02-22
 |def|  4|  5|  6|
 
 {% endrowheaders %}
+{% endraw %}
 ```
 <!--
 ## YAML front matter
