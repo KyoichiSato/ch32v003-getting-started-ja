@@ -1,7 +1,7 @@
 ---
 title: MounRiver Studioで使う CH32V003 はじめの一歩
 date: 2025-11-27
-updated: 2026-02-27
+updated: 2026-02-28
 ---
 
 # MounRiver Studioで使う CH32V003 はじめの一歩
@@ -41,6 +41,7 @@ updated: 2026-02-27
       * [ADC](adc.md)
       * [TIM1 アドバンスドコントロールタイマ](tim1.md)
       * [TIM2 汎用タイマ](tim2.md)
+      * [USART](usart.md)
     * [V1772開発基板の回路図](./V1772.md)
     * [https://www.wch-ic.com/products/CH32V003.html](https://www.wch-ic.com/products/CH32V003.html) メーカーの製品ページ
     * [CH32V003 日本語リファレンスマニュアル](https://archive.org/details/ch-32-v-003-v-1.9/CH32V003%20%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B7%E3%83%BC%E3%83%88%20V1.7/) (Internet Archive) 
