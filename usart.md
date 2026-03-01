@@ -156,13 +156,11 @@ USARTモジュールは、以下を含む複数の割り込み要因をサポー
 |送信データ空 (TXE)      |TXEIE    |
 |送信許可 (CTS)         |CTSIE    |
 |送信完了 (TC)          |TCIE     |
-|受信データあり (RXNE)<br/>
- オーバーランエラー (ORE)|RXNEIE   |
+|受信データあり (RXNE)<br/>オーバーランエラー (ORE)|RXNEIE   |
 |アイドル検出 (IDLE)     |IDLEIE   |
 |パリティエラー (PE)     |PEIE     |
 |ブレイク (LBD)          |LBDIE    |
-|ノイズフラグ (NE)<br/>
- オーバーフロー (ORE)<br/>
+|ノイズフラグ (NE)<br/>オーバーフロー (ORE)<br/>
  フレームエラー          |EIE      |
 
 ### USARTレジスタ
